@@ -1,0 +1,11 @@
+h1 {
+     text-align: center;
+}
+
+p {
+     display: flexbox;
+     text-align: center;
+     align-items: center;
+     padding: 50px;
+     font-size: 30px;
+}
