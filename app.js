@@ -37,23 +37,19 @@ function updateSize(elementId, amount, action) {
      let elementSize = elementStyle.fontSize;
 //element size number
      let elementSizeNum = parseInt(elementSize);
-     let value = elementSizeNum;
+     let value = Number(elementSizeNum);
 
 //add or subtract 10
      if (action === "inflate") {
-          Number(value += amount);
-          /*if (value > 60) {
-               limitReached("div", "big");
-          }*/         
+          value += amount;
+                  
      } else {
-          Number(value -= amount);
-          console.log (value);
-          /*if (value <= 0) {
-               limitReached("div", "small");
-          } */
+          value -= amount;
      }
 
 //done or boom
+//font size will not drop below 1px
+//when font size=10 and "d" key subtracts 10, 10-10=0px or 1px
      if (value <= 1) {
          limitReached("div", "small");
      } else if (value > 60) {
