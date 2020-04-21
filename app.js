@@ -36,35 +36,35 @@ function updateSize(elementId, amount, action) {
 //element font size
      let elementSize = elementStyle.fontSize;
 //element size number
-     let elementSizeNum = parseFloat(elementSize.split("p", 2)[0]);
+     let elementSizeNum = parseInt(elementSize);
+     let value = elementSizeNum;
 
 //add or subtract 10
      if (action === "inflate") {
-          elementSizeNum += amount;
-          if (elementSizeNum > 60) {
+          Number(value += amount);
+          /*if (value > 60) {
                limitReached("div", "big");
-          }         
+          }*/         
      } else {
-          elementSizeNum -= amount;
-          if (elementSizeNum <= 0) {
+          Number(value -= amount);
+          console.log (value);
+          /*if (value <= 0) {
                limitReached("div", "small");
-          } 
+          } */
      }
-     let updatedSize = elementSizeNum + "px";
-     element.style.fontSize = updatedSize;
-};
-/*//done or boom
-     if (elementSizeNum <= 0) {
+
+//done or boom
+     if (value <= 1) {
          limitReached("div", "small");
-     } else if (elementSizeNum > 60) {
+     } else if (value > 60) {
          limitReached("div", "big");
      } else {
 //set new font size
-         let updatedSize = elementSizeNum + "px";
+         let updatedSize = value + "px";
          element.style.fontSize = updatedSize;
      }
      
-}; */
+};
 
 function limitReached(elementId, limit) {
      const doneElement = document.createElement("div");
@@ -80,7 +80,6 @@ function limitReached(elementId, limit) {
      }
      document.removeEventListener("keyup", balloonHandler);
 }
-
 
 
 document.addEventListener("keyup", balloonHandler);

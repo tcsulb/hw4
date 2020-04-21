@@ -6,6 +6,7 @@ div {
      display: flexbox;
      text-align: center;
      align-items: center;
-     padding: 50px;
-     font-size: 30.0px;
+     padding: 30px;
+     font-size: 30px;
+     
 }
